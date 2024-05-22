@@ -2,9 +2,9 @@ from pathlib import Path
 
 from nptdms import TdmsFile
 
-input_folder = Path('/home/nanoz-admin/Desktop/projects/test remote mini project/data/train')
+input_folder = Path('./dvc cml pipeline data preprossses/data')
 
-output_folder = '/home/nanoz-admin/Desktop/projects/last_dvc/out'
+output_folder = './dvc cml pipeline data preprossses/out'
 
 tdms_rglob = input_folder.rglob('*.tdms')
 list_rglob = list(tdms_rglob)

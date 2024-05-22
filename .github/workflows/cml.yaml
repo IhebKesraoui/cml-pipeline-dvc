@@ -25,6 +25,4 @@ jobs:
           pip install -r requirements.txt
 
           dvc pull
-          python script.py
-          dvc add ./data/ ./models/
-          dvc push 
+          

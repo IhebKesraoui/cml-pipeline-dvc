@@ -23,8 +23,8 @@ jobs:
           pip install -r requirements.txt
 
           dvc pull
-          mkdir out
+          mkdir -p out
 
           dvc repro
-          dvc add /out/*.csv
+          dvc add out/*.csv
           dvc push -r myremote2

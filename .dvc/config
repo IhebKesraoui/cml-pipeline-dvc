@@ -6,3 +6,5 @@
     gdrive_acknowledge_abuse = true
 ['remote "myremote2"']
     url = gdrive://19opW14aCDPxnvOaYmLrP1T8E2ogYA_rL
+    gdrive_use_service_account = true
+    gdrive_acknowledge_abuse = true

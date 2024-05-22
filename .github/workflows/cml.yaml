@@ -23,8 +23,6 @@ jobs:
           # Your ML workflow goes here
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          dvc remote add --default -f myremote gdrive://18YYBsUk5-DvnFfzGs2q9pBHPQO8NCQCY
-
           dvc pull
           mkdir out
 

@@ -17,7 +17,6 @@ jobs:
       - name: Prepare Environment
         env:
           GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
-
         run: |
           # Your ML workflow goes here
           python -m pip install --upgrade pip

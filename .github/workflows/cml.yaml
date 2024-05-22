@@ -26,4 +26,6 @@ jobs:
 
           dvc pull
           python ./src/tdms_to_csv.py
-         
+          dvc remote add --default myremote gdrive://19opW14aCDPxnvOaYmLrP1T8E2ogYA_rL
+          dvc add ./out
+          dvc push

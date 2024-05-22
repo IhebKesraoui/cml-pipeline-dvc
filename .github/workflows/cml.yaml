@@ -23,6 +23,7 @@ jobs:
           # Your ML workflow goes here
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
           dvc pull
           mkdir out
 

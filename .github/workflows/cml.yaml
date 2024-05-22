@@ -23,9 +23,12 @@ jobs:
           # Your ML workflow goes here
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          dvc remote add --default -f myremote gdrive://18YYBsUk5-DvnFfzGs2q9pBHPQO8NCQCY
 
           dvc pull
-          python ./src/tdms_to_csv.py
-          dvc remote add --default myremote gdrive://19opW14aCDPxnvOaYmLrP1T8E2ogYA_rL
+          mkdir out
+
+          dvc repro
+          dvc remote add --default -f myremote gdrive://19opW14aCDPxnvOaYmLrP1T8E2ogYA_rL
           dvc add ./out
           dvc push

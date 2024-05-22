@@ -1,0 +1,7 @@
+stages:
+  transformation_en_csv:
+    cmd: python src/tdms_to_csv.py
+    deps:
+      - data
+    outs:
+      - /*.csv

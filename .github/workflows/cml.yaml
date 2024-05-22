@@ -17,14 +17,15 @@ jobs:
       - name: Prepare Environment
         env:
           GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
+
         run: |
           # Your ML workflow goes here
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
           dvc pull
-          mkdir -p out
+          mkdir out
 
           dvc repro
-          dvc add out
+          dvc add ./out
           dvc push -r myremote2

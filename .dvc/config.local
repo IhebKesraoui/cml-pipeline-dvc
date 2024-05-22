@@ -1,5 +1,0 @@
-['remote "myremote"']
-    gdrive_service_account_json_file_path =./default.json
-    profile = myprofile
-['remote "myremote2"']
-    gdrive_use_service_account = true

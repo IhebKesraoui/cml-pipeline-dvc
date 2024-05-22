@@ -1,0 +1,10 @@
+schema: '2.0'
+stages:
+  transformation_en_csv:
+    cmd: python src/tdms_to_csv.py
+    deps:
+    - path: data
+      hash: md5
+      md5: e6d9e2599e26a4245aa16c4836b9331a.dir
+      size: 70872954
+      nfiles: 2

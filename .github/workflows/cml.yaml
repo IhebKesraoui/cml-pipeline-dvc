@@ -28,6 +28,6 @@ jobs:
           mkdir out
 
           dvc repro
-          dvc remote add --default -f myremote gdrive://19opW14aCDPxnvOaYmLrP1T8E2ogYA_rL
+          dvc remote add --default  myremote2 gdrive://19opW14aCDPxnvOaYmLrP1T8E2ogYA_rL
           dvc add ./out
-          dvc push
+          dvc push -r myremote2

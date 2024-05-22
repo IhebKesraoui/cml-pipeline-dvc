@@ -3,5 +3,5 @@ stages:
     cmd: python src/tdms_to_csv.py
     deps:
       - data
-    out:
-      -  *.csv
+    outs:
+      - *.csv

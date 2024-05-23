@@ -27,7 +27,6 @@ jobs:
 
         run: |
 
-
           dvc pull
           mkdir out
           mkdir csv_out

@@ -1,24 +1,27 @@
 from pathlib import Path
-from pydrive.auth import GoogleAuth
-from pydrive.drive import GoogleDrive
 from nptdms import TdmsFile
 from google.oauth2 import service_account
+from googleapiclient.discovery import build
+from googleapiclient.http import MediaFileUpload
 import os
-
-# Get service account key JSON from environment variable
-service_account_key = os.environ.get('GDRIVE_CREDENTIALS_DATA')
+import json
 
 # Authenticate using service account credentials
-credentials = service_account.Credentials.from_service_account_info(
-    service_account_key,
+service_account_file = '/home/nanoz-admin/Documents/trypipeline/cml-pipeline-dvc/.dvc/default.json'
+credentials = service_account.Credentials.from_service_account_file(
+    service_account_file,
     scopes=['https://www.googleapis.com/auth/drive']
 )
 
-drive = GoogleDrive(credentials)
+# Build the Google Drive service
+drive_service = build('drive', 'v3', credentials=credentials)
 
 # Define input and output folders
 input_folder = Path('./data')
-output_folder = './out'
+output_folder = Path('./out')
+
+# Create output folder if it doesn't exist
+output_folder.mkdir(parents=True, exist_ok=True)
 
 # Get list of tdms files
 tdms_rglob = input_folder.rglob('*.tdms')
@@ -34,13 +37,19 @@ for tdms_file in list_rglob:
     tdms_df = TdmsFile.read(tdms_file).as_dataframe()
 
     # Convert to CSV and save to local disk
-    csv_file_path = Path(output_folder, tdms_file.stem+'.csv')
+    csv_file_path = output_folder / f'{tdms_file.stem}.csv'
     tdms_df.to_csv(csv_file_path)
 
     # Upload CSV file to Google Drive in the specified folder
-    csv_file = drive.CreateFile({'title': tdms_file.stem+'.csv',
-                                 'parents': [{'id': destination_folder_id}]})
-    csv_file.SetContentFile(str(csv_file_path))
-    csv_file.Upload()
+    file_metadata = {
+        'name': f'{tdms_file.stem}.csv',
+        'parents': [destination_folder_id]
+    }
+    media = MediaFileUpload(csv_file_path, mimetype='text/csv')
+    drive_service.files().create(
+        body=file_metadata,
+        media_body=media,
+        fields='id'
+    ).execute()
 
 print('Finished')

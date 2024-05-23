@@ -1,5 +1,28 @@
 stages:
-  transformation_en_csv:
-    cmd: python src/tdms_to_csv.py
+  convert_tdms:
+    cmd: python src/tdms_to_df.py data out
     deps:
+      - src/tdms_to_df.py
       - data
+  rename_channels:
+    cmd: python src/rename_channels.py out rename_map.txt out
+    deps:
+      - src/rename_channels.py
+      - out
+      - rename_map.txt
+  merge_bench_line:
+    cmd: python src/merge_bench_line.py out out
+    deps:
+      - src/merge_bench_line.py
+      - out
+  drop_columns:
+    cmd: python src/drop_columns.py out drop_file.txt out
+    deps:
+      - src/drop_columns.py
+      - out
+      - drop_file.txt
+  convert_to_csv:
+    cmd: python src/df_to_csv.py out csv_out
+    deps:
+      - src/df_to_csv.py
+      - out

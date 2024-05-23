@@ -25,7 +25,7 @@ jobs:
 
           dvc pull
           mkdir out
-
+          mkdir csv_out
           dvc repro
-          dvc add ./out
+          dvc add ./csv_out
           dvc push -r myremote2

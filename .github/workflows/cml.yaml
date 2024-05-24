@@ -6,7 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
+<<<<<<< HEAD
+=======
+>>>>>>> 4ffcd2441d0faeb65281993f9bcd4b937de113c8
       - uses: actions/setup-python@v4
         with:
           python-version: '3.x'

@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 Temperature aaaa
+=======
+Temperature aaaa
+>>>>>>> 4ffcd2441d0faeb65281993f9bcd4b937de113c8

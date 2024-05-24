@@ -10,19 +10,15 @@ def convert_to_csv(input_dir, output_dir):
     input_dir (str): Path to the directory containing input DataFrame pickle files.
     output_dir (str): Path to the directory to save the output CSV files.
     """
-    # Create the output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
 
-    # Loop through each pickle file in the input directory
     for file_name in os.listdir(input_dir):
         if file_name.endswith(".pkl"):
             input_file_path = os.path.join(input_dir, file_name)
             output_file_path = os.path.join(output_dir, os.path.splitext(file_name)[0] + ".csv")
 
-            # Read DataFrame from pickle file
             df = pd.read_pickle(input_file_path)
 
-            # Save the DataFrame as CSV
             df.to_csv(output_file_path, index=False)
 
 if __name__ == "__main__":

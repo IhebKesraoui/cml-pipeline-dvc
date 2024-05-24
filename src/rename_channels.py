@@ -30,16 +30,12 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    # Process each input DataFrame in the directory
     for file_name in os.listdir(args.input_dir):
         if file_name.endswith(".pkl"):
             input_file_path = os.path.join(args.input_dir, file_name)
-            # Load DataFrame from pickle file
             with open(input_file_path, 'rb') as f:
                 df = pickle.load(f)
-            # Rename channels
             df = rename_channels(df, args.rename_map)
-            # Save the result as a pickle file
             output_file_path = os.path.join(args.output_dir, file_name)
             with open(output_file_path, 'wb') as f:
                 pickle.dump(df, f)

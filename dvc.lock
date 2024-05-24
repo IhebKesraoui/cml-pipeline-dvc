@@ -25,29 +25,29 @@ stages:
     deps:
     - path: out
       hash: md5
-      md5: ea50eb21da64f262ad01e9ab973a3526.dir
-      size: 81052403
-      nfiles: 4
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
     - path: rename_map.txt
       hash: md5
-      md5: 752cc472d0805976852c874b8e774825
-      size: 16
+      md5: 9802926aa21f353460957cb04e9cf658
+      size: 18
     - path: src/rename_channels.py
       hash: md5
-      md5: 6a3e8412b30ec8628f90046e1d6e1f01
-      size: 1716
+      md5: 69fff653eb60e38056b73aa32604ca9a
+      size: 1541
   merge_bench_line:
     cmd: python src/merge_bench_line.py out out
     deps:
     - path: out
       hash: md5
-      md5: 388c0b58b69e8a7ef003dede50a831f1.dir
-      size: 77067355
-      nfiles: 4
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
     - path: src/merge_bench_line.py
       hash: md5
-      md5: d68787cfa0eab42a62d4fae2f022ea86
-      size: 2379
+      md5: ff1ea0a82bb3af918e50115922312831
+      size: 1852
   drop_columns:
     cmd: python src/drop_columns.py out drop_file.txt out
     deps:
@@ -57,9 +57,9 @@ stages:
       size: 0
     - path: out
       hash: md5
-      md5: 8d445efbae20af1821d5752ea199f9c3.dir
-      size: 77067326
-      nfiles: 4
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
     - path: src/drop_columns.py
       hash: md5
       md5: 446dffe937c03c507972f469b13cc41f
@@ -69,10 +69,10 @@ stages:
     deps:
     - path: out
       hash: md5
-      md5: 8d445efbae20af1821d5752ea199f9c3.dir
-      size: 77067326
-      nfiles: 4
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
     - path: src/df_to_csv.py
       hash: md5
-      md5: 2aa44123ed62bc42ae808a1cb3cd0607
-      size: 1363
+      md5: c45b1d01803584771dc658e51c8b010f
+      size: 1164

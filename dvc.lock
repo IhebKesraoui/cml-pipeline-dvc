@@ -13,41 +13,41 @@ stages:
     deps:
     - path: data
       hash: md5
-      md5: 89f400a5e8287d469d7f657466239134.dir
-      size: 81774520
-      nfiles: 4
+      md5: a7f91ec51357082b84237d43074ae402.dir
+      size: 81748601
+      nfiles: 3
     - path: src/tdms_to_df.py
       hash: md5
-      md5: 9267f24e43b2ac29f32bcce4801ec5ba
-      size: 1483
+      md5: 53cbcd53574b730e3d27535de3b558a0
+      size: 1407
   rename_channels:
     cmd: python src/rename_channels.py out rename_map.txt out
     deps:
     - path: out
       hash: md5
-      md5: 3a8c15132973c03d2384d89c18584fff.dir
-      size: 74410033
+      md5: ea50eb21da64f262ad01e9ab973a3526.dir
+      size: 81052403
       nfiles: 4
     - path: rename_map.txt
       hash: md5
-      md5: f153ca3301fb455123d448508f97f87b
+      md5: 752cc472d0805976852c874b8e774825
       size: 16
     - path: src/rename_channels.py
       hash: md5
-      md5: 699ecb41dd2799cc5406d7752319324a
-      size: 1830
+      md5: 6a3e8412b30ec8628f90046e1d6e1f01
+      size: 1716
   merge_bench_line:
     cmd: python src/merge_bench_line.py out out
     deps:
     - path: out
       hash: md5
-      md5: a2f2d300aa48f4951e7ed5aab5a8469c.dir
-      size: 74410062
+      md5: 388c0b58b69e8a7ef003dede50a831f1.dir
+      size: 77067355
       nfiles: 4
     - path: src/merge_bench_line.py
       hash: md5
-      md5: 0b137c45fa18ecd103489b856a80952f
-      size: 2455
+      md5: d68787cfa0eab42a62d4fae2f022ea86
+      size: 2379
   drop_columns:
     cmd: python src/drop_columns.py out drop_file.txt out
     deps:
@@ -57,22 +57,22 @@ stages:
       size: 0
     - path: out
       hash: md5
-      md5: 3a8c15132973c03d2384d89c18584fff.dir
-      size: 74410033
+      md5: 8d445efbae20af1821d5752ea199f9c3.dir
+      size: 77067326
       nfiles: 4
     - path: src/drop_columns.py
       hash: md5
-      md5: 0951c13d811577cb0a6a8c4f7d285e4d
-      size: 1888
+      md5: 446dffe937c03c507972f469b13cc41f
+      size: 1774
   convert_to_csv:
     cmd: python src/df_to_csv.py out csv_out
     deps:
     - path: out
       hash: md5
-      md5: 3a8c15132973c03d2384d89c18584fff.dir
-      size: 74410033
+      md5: 8d445efbae20af1821d5752ea199f9c3.dir
+      size: 77067326
       nfiles: 4
     - path: src/df_to_csv.py
       hash: md5
-      md5: b1d08fed073aedcf6c9b5fc1cfc6648d
-      size: 1456
+      md5: 2aa44123ed62bc42ae808a1cb3cd0607
+      size: 1363

@@ -9,147 +9,70 @@ stages:
       size: 70872954
       nfiles: 2
   convert_tdms:
-    cmd: python src/data_preprocess/tdms_to_df.py data out
+    cmd: python src/tdms_to_df.py data out
     deps:
     - path: data
       hash: md5
-      md5: 8f060f55f14dfef9e2015ac4c0637d93.dir
-      size: 28604894
-      nfiles: 2
-    - path: src/data_preprocess/tdms_to_df.py
+      md5: f7be1703276a07cbe35064a9a7ef5381.dir
+      size: 70898873
+      nfiles: 3
+    - path: src/tdms_to_df.py
       hash: md5
-      md5: 64b8b243e3787291f41402e5164ed6c8
-      size: 1755
+      md5: 53cbcd53574b730e3d27535de3b558a0
+      size: 1407
   rename_channels:
-    cmd: python src/data_preprocess/rename_channels.py out intermidiate_files/rename_map.yaml
-      out
+    cmd: python src/rename_channels.py out rename_map.txt out
     deps:
-    - path: intermidiate_files/rename_map.yaml
-      hash: md5
-      md5: d41d8cd98f00b204e9800998ecf8427e
-      size: 0
     - path: out
       hash: md5
-      md5: ea50eb21da64f262ad01e9ab973a3526.dir
-      size: 81052403
+      md5: dc9b6504cd44b1eed6a219a42999603a.dir
+      size: 80523089
       nfiles: 4
     - path: rename_map.txt
       hash: md5
-      md5: 752cc472d0805976852c874b8e774825
-      size: 16
+      md5: 9802926aa21f353460957cb04e9cf658
+      size: 18
     - path: src/rename_channels.py
       hash: md5
-      md5: 6a3e8412b30ec8628f90046e1d6e1f01
-      size: 1716
+      md5: 69fff653eb60e38056b73aa32604ca9a
+      size: 1541
   merge_bench_line:
-    cmd: python src/data_preprocess/merge_bench_line.py out out
+    cmd: python src/merge_bench_line.py out out
     deps:
     - path: out
       hash: md5
-      md5: 388c0b58b69e8a7ef003dede50a831f1.dir
-      size: 77067355
+      md5: ad285e4414ff261b39eb26ef8e7c0229.dir
+      size: 77067442
       nfiles: 4
     - path: src/merge_bench_line.py
       hash: md5
-      md5: d68787cfa0eab42a62d4fae2f022ea86
-      size: 2379
+      md5: ff1ea0a82bb3af918e50115922312831
+      size: 1852
   drop_columns:
-    cmd: python src/data_preprocess/drop_columns.py out intermidiate_files/drop_file.txt
-      out
+    cmd: python src/drop_columns.py out drop_file.txt out
     deps:
-    - path: intermidiate_files/drop_file.txt
+    - path: drop_file.txt
       hash: md5
       md5: d41d8cd98f00b204e9800998ecf8427e
       size: 0
     - path: out
       hash: md5
-      md5: 8d445efbae20af1821d5752ea199f9c3.dir
-      size: 77067326
+      md5: 47e6f461c440e9f13fd990e46fea6278.dir
+      size: 77067413
       nfiles: 4
     - path: src/drop_columns.py
       hash: md5
-      md5: b78f580a0304c318f508a88ef92ec659
-      size: 2056
+      md5: 446dffe937c03c507972f469b13cc41f
+      size: 1774
   convert_to_csv:
-    cmd: python src/data_preprocess/df_to_csv.py out csv_out
+    cmd: python src/df_to_csv.py out csv_out
     deps:
     - path: out
       hash: md5
-      md5: dc4e579e8aa00df56f60e651abcce1cf.dir
-      size: 6630
-      nfiles: 3
-    - path: src/data_preprocess/df_to_csv.py
-      hash: md5
-      md5: cf65f67ae0935d603b12f6b3f3ea9f51
-      size: 1119
-  unit_tests:
-    cmd:
-    - python -m unittest src/tests/test_tdms_to_df.py
-    - python src/tests/test_rename_channels.py
-    deps:
-    - path: data
-      hash: md5
-      md5: 8f060f55f14dfef9e2015ac4c0637d93.dir
-      size: 28604894
-      nfiles: 2
-    - path: intermidiate_files/rename_map.yaml
-      hash: md5
-      md5: d41d8cd98f00b204e9800998ecf8427e
-      size: 0
-    - path: out
-      hash: md5
-      md5: a0de96ca62a57af837fd35654cf14ad9.dir
-      size: 28344211
-      nfiles: 3
-    - path: src/tests/drop_columns_test.py
-      hash: md5
-      md5: 81d0bc8e4eda689d26d9f09a9331c2a7
-      size: 1417
-    - path: src/tests/test_rename_channels.py
-      hash: md5
-      md5: f5356b1918f358db95f274820a8853bb
-      size: 2240
-    - path: src/tests/test_tdms_to_df.py
-      hash: md5
-      md5: d1f011252d18bed12ef4ed9e029d4d71
-      size: 945
-  merge_tests:
-    cmd: python -m unittest src/tests/merge_bench_line_test.py
-    deps:
-    - path: out
-      hash: md5
-      md5: 8b3f07b56089478959778184cfbfdd4e.dir
-      size: 6674
-      nfiles: 3
-    - path: src/tests/merge_bench_line_test.py
-      hash: md5
-      md5: 33127d3923db6572f68edcdd203215ae
-      size: 1917
-  drop_tests:
-    cmd: python  src/tests/drop_columns_test.py
-    deps:
-    - path: intermidiate_files/drop_file.txt
-      hash: md5
-      md5: d41d8cd98f00b204e9800998ecf8427e
-      size: 0
-    - path: out
-      hash: md5
-      md5: 8b3f07b56089478959778184cfbfdd4e.dir
-      size: 6674
-      nfiles: 3
-    - path: src/tests/drop_columns_test.py
-      hash: md5
-      md5: 81d0bc8e4eda689d26d9f09a9331c2a7
-      size: 1417
-  nan_drop:
-    cmd: python src/data_preprocess/nan_drop.py out out
-    deps:
-    - path: out
-      hash: md5
-      md5: 8d445efbae20af1821d5752ea199f9c3.dir
-      size: 77067326
+      md5: 47e6f461c440e9f13fd990e46fea6278.dir
+      size: 77067413
       nfiles: 4
     - path: src/df_to_csv.py
       hash: md5
-      md5: 2aa44123ed62bc42ae808a1cb3cd0607
-      size: 1363
+      md5: c45b1d01803584771dc658e51c8b010f
+      size: 1164

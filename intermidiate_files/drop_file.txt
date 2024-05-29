@@ -1,1 +1,1 @@
-Input_1/Humidity
+Input_1/Humidity Sensor

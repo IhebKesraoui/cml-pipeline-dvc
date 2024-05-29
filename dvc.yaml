@@ -1,28 +1,61 @@
 stages:
   convert_tdms:
-    cmd: python src/tdms_to_df.py data out
+    cmd: python src/data_preprocess/tdms_to_df.py data out
     deps:
-      - src/tdms_to_df.py
+      - src/data_preprocess/tdms_to_df.py
       - data
+
+  unit_tests:
+    cmd:
+      - python -m unittest src/tests/test_tdms_to_df.py
+      - python src/tests/test_rename_channels.py
+      
+    deps:
+      - src/tests/test_tdms_to_df.py
+      - data
+      - out
+      - src/tests/drop_columns_test.py
+      - src/tests/test_rename_channels.py
+      - intermidiate_files/rename_map.yaml
+      
+
+
   rename_channels:
-    cmd: python src/rename_channels.py out rename_map.txt out
+    cmd: python src/data_preprocess/rename_channels.py out intermidiate_files/rename_map.yaml out
     deps:
-      - src/rename_channels.py
+      - src/data_preprocess/rename_channels.py
       - out
-      - rename_map.txt
+      - intermidiate_files/rename_map.yaml
+  nan_drop:
+    cmd: python src/data_preprocess/nan_drop.py out out
+    deps:
+      - src/data_preprocess/nan_drop.py
+      - out
   merge_bench_line:
-    cmd: python src/merge_bench_line.py out out
+    cmd: python src/data_preprocess/merge_bench_line.py out out
     deps:
-      - src/merge_bench_line.py
+      - src/data_preprocess/merge_bench_line.py
       - out
+  merge_tests:
+    cmd: python -m unittest src/tests/merge_bench_line_test.py
+    deps:
+      - src/tests/merge_bench_line_test.py
+      - out
+  drop_tests:
+    cmd: python  src/tests/drop_columns_test.py
+    deps:
+      - src/tests/drop_columns_test.py
+      - out
+      - intermidiate_files/drop_file.txt
+
   drop_columns:
-    cmd: python src/drop_columns.py out drop_file.txt out
+    cmd: python src/data_preprocess/drop_columns.py out intermidiate_files/drop_file.txt out
     deps:
-      - src/drop_columns.py
+      - src/data_preprocess/drop_columns.py
       - out
-      - drop_file.txt
+      - intermidiate_files/drop_file.txt
   convert_to_csv:
-    cmd: python src/df_to_csv.py out csv_out
+    cmd: python src/data_preprocess/df_to_csv.py out csv_out
     deps:
-      - src/df_to_csv.py
+      - src/data_preprocess/df_to_csv.py
       - out

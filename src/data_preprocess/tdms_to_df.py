@@ -5,21 +5,24 @@ import pickle
 
 def tdms_to_df(tdms_file_path):
     """
-    Converts a TDMS file to a pandas DataFrame.
+    Converts a TDMS file to a pandas DataFrame and returns the DataFrame along with full channel paths.
     
     Parameters:
     tdms_file_path (str): Path to the TDMS file.
     
     Returns:
-    pd.DataFrame: DataFrame containing the data from the TDMS file.
+    tuple: (pd.DataFrame, list) DataFrame containing the data from the TDMS file and a list of full channel paths.
     """
     tdms_file = TdmsFile.read(tdms_file_path)
     data = {}
+    full_channel_paths = []
     for group in tdms_file.groups():
         for channel in group.channels():
-            data[channel.name] = channel[:]
+            full_channel_path = f"{group.name}/{channel.name}"
+            full_channel_paths.append(full_channel_path)
+            data[full_channel_path] = channel[:]
     df = pd.DataFrame(data)
-    return df
+    return df, full_channel_paths
 
 if __name__ == "__main__":
     import argparse
@@ -35,7 +38,9 @@ if __name__ == "__main__":
         if file_name.endswith(".tdms"):
             tdms_file_path = os.path.join(args.tdms_dir, file_name)
             # Process TDMS file
-            df = tdms_to_df(tdms_file_path)
+            df, full_channel_paths = tdms_to_df(tdms_file_path)
+            # Print full channel paths
+            
             # Save the result as a pickle file
             output_file_path = os.path.join(args.output_dir, os.path.splitext(file_name)[0] + ".pkl")
             with open(output_file_path, 'wb') as f:

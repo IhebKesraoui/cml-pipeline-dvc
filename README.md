@@ -83,14 +83,14 @@ Option 2: Utiliser un compte de service Google
 
 Pour utiliser un compte de service Google, exécutez la commande suivante :
 
-bash
+```bash
 
 # Activer l'utilisation du compte de service Google
 dvc remote modify myremote gdrive_use_service_account true
 
 # Implémenter le fichier default.json téléchargé depuis Google Cloud API
 # Assurez-vous que le fichier default.json est correctement configuré avec les autorisations nécessaires
-
+```
 2. Méthode pour travailler avec le Cloud (CML - GitHub Actions)
 
 Si vous utilisez le CML (GitHub Actions) pour travailler avec le Cloud, suivez ces étapes :

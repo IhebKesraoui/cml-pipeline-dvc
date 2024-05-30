@@ -1,6 +1,6 @@
 import pickle
-from pathlib import Path  # Importing Path from pathlib
-import os  # Imported os module for the existing os.path operations
+from pathlib import Path
+import os
 
 def drop_columns(df, drop_file_path):
     """
@@ -8,8 +8,7 @@ def drop_columns(df, drop_file_path):
     
     Parameters:
     df (pd.DataFrame): Input DataFrame.
-    drop_file_path (str): Path to the text file containing column names to drop.
-    
+    drop_file_path (str): Path to the text file containing column names to drop.                         
     Returns:
     pd.DataFrame: DataFrame with specified columns dropped.
     """
@@ -20,16 +19,24 @@ def drop_columns(df, drop_file_path):
     if drop_file_path.exists() and drop_file_path.stat().st_size > 0:
         with open(drop_file_path, 'r') as f:
             columns_to_drop = f.read().splitlines()
-        df = df.drop(columns=columns_to_drop, errors='ignore')
+        
+        # Check if each column to drop exists in the DataFrame
+        for col in columns_to_drop:
+            if col not in df.columns:
+                raise ValueError(f"Column '{col}' does not exist in the DataFrame.")
+        
+        df = df.drop(columns=columns_to_drop)
+    else:
+        print("Drop file is empty or does not exist. DataFrame returned unchanged.")
     return df
 
 if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description="Drop specified columns from DataFrames and save as pickles")
-    parser.add_argument("input_dir", type=str, help="./cml-pipeline-dvc/out")
-    parser.add_argument("drop_file", type=str, help="./cml-pipeline-dvc/drop_file.txt")
-    parser.add_argument("output_dir", type=str, help="./cml-pipeline-dvc/out")
+    parser.add_argument("input_dir", type=str, help="Path to the input directory containing DataFrame pickles.")
+    parser.add_argument("drop_file", type=str, help="Path to the text file containing column names to drop.")
+    parser.add_argument("output_dir", type=str, help="Path to the output directory to save modified DataFrame pickles.")
 
     args = parser.parse_args()
     
@@ -46,8 +53,12 @@ if __name__ == "__main__":
         # Load DataFrame from pickle file
         with open(input_file_path, 'rb') as f:
             df = pickle.load(f)
-        # Drop specified columns
-        df = drop_columns(df, drop_file)
+        try:
+            # Drop specified columns
+            df = drop_columns(df, drop_file)
+        except ValueError as e:
+            print(f"Error processing file {input_file_path.name}: {e}")
+            continue
         # Save the result as a pickle file
         output_file_path = output_dir / input_file_path.name
         with open(output_file_path, 'wb') as f:

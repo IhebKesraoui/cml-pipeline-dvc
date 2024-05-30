@@ -27,12 +27,16 @@ def merge_bench_line_dvc(input_dir, output_dir):
         for col_A, col_B in zip(columns_A, columns_B):
             prefix = col_A[:-2]  # Remove the '_A' suffix to get the prefix
             insert_position = df.columns.get_loc(col_A)  # Get the position of the col_A column
-            
-            # Create the new column with the merged values
-            df[prefix] = df.apply(
-                lambda row: row[col_A] if row[col_A] == row[col_B] else max(row[col_A], row[col_B]),
-                axis=1
-            )
+
+            # Check if both columns are empty
+            if df[col_A].isnull().all() and df[col_B].isnull().all():
+                df[prefix] = None
+            else:
+                # Create the new column with the merged values
+                df[prefix] = df.apply(
+                    lambda row: row[col_A] if row[col_A] == row[col_B] else max(row[col_A], row[col_B]),
+                    axis=1
+                )
 
             # Move the new column to the position of the original _A column
             cols = list(df.columns)
@@ -51,8 +55,8 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description="Merge specific columns in DataFrames and save as pickles")
-    parser.add_argument("input_dir", type=str, help="./cml-pipeline-dvc/out")
-    parser.add_argument("output_dir", type=str, help="./cml-pipeline-dvc/out")
+    parser.add_argument("input_dir", type=str, help="Path to the input directory containing DataFrame pickles.")
+    parser.add_argument("output_dir", type=str, help="Path to the output directory to save merged DataFrame pickles.")
 
     args = parser.parse_args()
     

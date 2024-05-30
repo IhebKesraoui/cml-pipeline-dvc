@@ -79,7 +79,7 @@ dvc remote modify --local myremote profile myprofile
 dvc pull
 dvc push
 ```
-Option 2: Utiliser un compte de service Google
+#### Option 2: Utiliser un compte de service Google
 
 Pour utiliser un compte de service Google, exécutez la commande suivante :
 
@@ -95,9 +95,9 @@ dvc remote modify myremote gdrive_use_service_account true
 
 Si vous utilisez le CML (GitHub Actions) pour travailler avec le Cloud, suivez ces étapes :
 
-    Assurez-vous que le contenu du fichier default.json est ajouté au répertoire secret de GitHub.
-    Modifiez le workflow GitHub Actions pour inclure les informations nécessaires pour accéder au fichier default.json.
-    Effectuez un push pour déclencher le workflow. Assurez-vous que tout fonctionne correctement.
+    1- Assurez-vous que le contenu du fichier default.json est ajouté au répertoire secret de GitHub.
+    2- Modifiez le workflow GitHub Actions pour inclure les informations nécessaires pour accéder au fichier default.json.
+    3- Effectuez un push pour déclencher le workflow. Assurez-vous que tout fonctionne correctement.
 
 
 

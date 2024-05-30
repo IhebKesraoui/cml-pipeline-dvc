@@ -7,7 +7,21 @@ stages:
 
 
 
+<<<<<<< HEAD
   
+=======
+  rename_channels:
+    cmd: python src/data_preprocess/rename_channels.py out intermidiate_files/rename_map.yaml out
+    deps:
+      - src/data_preprocess/rename_channels.py
+      - out
+      - intermidiate_files/rename_map.yaml
+ # nan_drop:
+  #  cmd: python src/data_preprocess/nan_drop.py out out
+   # deps:
+    #  - src/data_preprocess/nan_drop.py
+      #- out
+>>>>>>> f6e8c71a3cdab222562c1bd4c4764d435c7c6b09
   merge_bench_line:
     cmd: python src/data_preprocess/merge_bench_line.py out out
     deps:

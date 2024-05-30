@@ -9,25 +9,21 @@ stages:
       size: 70872954
       nfiles: 2
   convert_tdms:
-    cmd: python src/data_preprocess/tdms_to_df.py data out
+    cmd: python src/tdms_to_df.py data out
     deps:
     - path: data
       hash: md5
-      md5: c85451f8217c8f48777c7d228c974f2f.dir
+
+      md5: f7be1703276a07cbe35064a9a7ef5381.dir
       size: 70898873
       nfiles: 3
-    - path: src/data_preprocess/tdms_to_df.py
+    - path: src/tdms_to_df.py
       hash: md5
-      md5: 059583853c4078a92cd582ccd0b88701
-      size: 2462
+      md5: 53cbcd53574b730e3d27535de3b558a0
+      size: 1407
   rename_channels:
-    cmd: python src/data_preprocess/rename_channels.py out intermidiate_files/rename_map.yaml
-      out
+    cmd: python src/rename_channels.py out rename_map.txt out
     deps:
-    - path: intermidiate_files/rename_map.yaml
-      hash: md5
-      md5: d41d8cd98f00b204e9800998ecf8427e
-      size: 0
     - path: out
       hash: md5
       md5: 962ee1a8173d596d4ce39ba4a704d953.dir
@@ -37,8 +33,10 @@ stages:
       hash: md5
       md5: 221306764480250e68c41d9eae4858c6
       size: 2440
+
+      
   merge_bench_line:
-    cmd: python src/data_preprocess/merge_bench_line.py out out
+    cmd: python src/merge_bench_line.py out out
     deps:
     - path: out
       hash: md5
@@ -49,11 +47,11 @@ stages:
       hash: md5
       md5: 335e55f3f76282c07e9d2af9d7a22130
       size: 2611
+
   drop_columns:
-    cmd: python src/data_preprocess/drop_columns.py out intermidiate_files/drop_file.txt
-      out
+    cmd: python src/drop_columns.py out drop_file.txt out
     deps:
-    - path: intermidiate_files/drop_file.txt
+    - path: drop_file.txt
       hash: md5
       md5: e268203a5d92464c9a3c5f94b4386863
       size: 3

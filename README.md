@@ -36,12 +36,15 @@ Assurez-vous que les paramètres suivants sont définis dans votre fichier de co
 
 [gdrive]
 gdrive_acknowledge_abuse = true
+dvc remote modify myremote gdrive_use_service_account true
+et on ajoute le fichier .dvc/default.json ( qui contient les donnees personnelles de google drive)
 ```
 6. Sélection du profil pour le stockage distant
+```bash
 
+dvc remote modify --local myremote profile myprofile
+```
 
-[remote "myremote"]
-profile = myprofile
 
 
 7. Commit et Push des données avec DVC
@@ -99,5 +102,25 @@ Si vous utilisez le CML (GitHub Actions) pour travailler avec le Cloud, suivez c
     2- Modifiez le workflow GitHub Actions pour inclure les informations nécessaires pour accéder au fichier default.json.
     3- Effectuez un push pour déclencher le workflow. Assurez-vous que tout fonctionne correctement.
 
+Monitoring des commits
 
+Pour suivre les modifications apportées aux données et au code, vous pouvez utiliser git log pour les commits Git et dvc checkout pour les versions des données avec DVC :
+
+    Utilisez git log pour voir l'historique des commits :
+
+    ```bash
+
+git log```
+
+Utilisez git checkout pour revenir à une version précédente du code :
+
+```bash
+
+git checkout <hash_commit>```
+
+Utilisez dvc checkout pour revenir à une version précédente des données :
+
+```bash
+
+dvc checkout```
 

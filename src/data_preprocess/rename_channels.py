@@ -21,7 +21,16 @@ def rename_channels(df, rename_map_path):
     if not rename_map:
         print("No rename mappings found. DataFrame returned unchanged.")
         return df
-    
+
+    # Validations
+    for old_name, new_name in rename_map.items():
+        if old_name not in df.columns:
+            raise ValueError(f"Column '{old_name}' does not exist in the DataFrame.")
+        if new_name in df.columns:
+            raise ValueError(f"New column name '{new_name}' already exists in the DataFrame.")
+        if len(new_name) > 20:
+            raise ValueError(f"New column name '{new_name}' exceeds 20 characters.")
+
     # Use a copy of the DataFrame to avoid modifying the original DataFrame
     df_copy = df.copy()
     
@@ -33,9 +42,9 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description="Rename channels in DataFrames and save as pickles")
-    parser.add_argument("input_dir", type=str, help="./cml-pipeline-dvc/src/out")
-    parser.add_argument("rename_map", type=str, help="./cml-pipeline-dvc/intermidiate_file/rename_map.yaml")
-    parser.add_argument("output_dir", type=str, help="./cml-pipeline-dvc/src/out")
+    parser.add_argument("input_dir", type=str, help="Path to the input directory containing DataFrame pickles.")
+    parser.add_argument("rename_map", type=str, help="Path to the YAML file containing channel rename mappings.")
+    parser.add_argument("output_dir", type=str, help="Path to the output directory to save renamed DataFrame pickles.")
 
     args = parser.parse_args()
 

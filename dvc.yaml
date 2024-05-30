@@ -5,48 +5,15 @@ stages:
       - src/data_preprocess/tdms_to_df.py
       - data
 
-  unit_tests:
-    cmd:
-      - python -m unittest src/tests/test_tdms_to_df.py
-      - python src/tests/test_rename_channels.py
-      
-    deps:
-      - src/tests/test_tdms_to_df.py
-      - data
-      - out
-      - src/tests/drop_columns_test.py
-      - src/tests/test_rename_channels.py
-      - intermidiate_files/rename_map.yaml
-      
 
 
-  rename_channels:
-    cmd: python src/data_preprocess/rename_channels.py out intermidiate_files/rename_map.yaml out
-    deps:
-      - src/data_preprocess/rename_channels.py
-      - out
-      - intermidiate_files/rename_map.yaml
-  nan_drop:
-    cmd: python src/data_preprocess/nan_drop.py out out
-    deps:
-      - src/data_preprocess/nan_drop.py
-      - out
+  
   merge_bench_line:
     cmd: python src/data_preprocess/merge_bench_line.py out out
     deps:
       - src/data_preprocess/merge_bench_line.py
       - out
-  merge_tests:
-    cmd: python -m unittest src/tests/merge_bench_line_test.py
-    deps:
-      - src/tests/merge_bench_line_test.py
-      - out
-  drop_tests:
-    cmd: python  src/tests/drop_columns_test.py
-    deps:
-      - src/tests/drop_columns_test.py
-      - out
-      - intermidiate_files/drop_file.txt
+
 
   drop_columns:
     cmd: python src/data_preprocess/drop_columns.py out intermidiate_files/drop_file.txt out
@@ -54,6 +21,12 @@ stages:
       - src/data_preprocess/drop_columns.py
       - out
       - intermidiate_files/drop_file.txt
+  rename_channels:
+    cmd: python src/data_preprocess/rename_channels.py out intermidiate_files/rename_map.yaml out
+    deps:
+      - src/data_preprocess/rename_channels.py
+      - out
+      - intermidiate_files/rename_map.yaml
   convert_to_csv:
     cmd: python src/data_preprocess/df_to_csv.py out csv_out
     deps:

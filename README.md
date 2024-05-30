@@ -43,6 +43,7 @@ gdrive_acknowledge_abuse = true
 [remote "myremote"]
 profile = myprofile
 
+
 7. Commit et Push des données avec DVC
 
 ```bash
@@ -52,6 +53,51 @@ git add .
 git commit -m "Ajout des données avec DVC"
 git push origin main
 ```
-8. Utilisation avec le CML (Continuous Machine Learning) (optionnel)
+8. Utilisation avec un autre local
 
-Si vous utilisez le CML, assurez-vous que les informations d'identification Google Drive sont disponibles pour les workflows.
+## Guide d'utilisation
+clone le projet github
+  ```bash
+
+
+git clone <nom de represotory>
+```
+### 1. Méthode pour travailler en local
+
+#### Option 1: Utiliser un compte Google Drive personnel
+
+Si vous travaillez en local, suivez ces étapes :
+
+```bash
+# Activer l'option pour reconnaître l'abus dans la configuration DVC
+dvc remote modify --local myremote gdrive_acknowledge_abuse true
+
+# Ajouter le profil pour le stockage distant
+dvc remote modify --local myremote profile myprofile
+
+# Effectuer le pull et le push des données avec DVC
+dvc pull
+dvc push
+```
+Option 2: Utiliser un compte de service Google
+
+Pour utiliser un compte de service Google, exécutez la commande suivante :
+
+bash
+
+# Activer l'utilisation du compte de service Google
+dvc remote modify myremote gdrive_use_service_account true
+
+# Implémenter le fichier default.json téléchargé depuis Google Cloud API
+# Assurez-vous que le fichier default.json est correctement configuré avec les autorisations nécessaires
+
+2. Méthode pour travailler avec le Cloud (CML - GitHub Actions)
+
+Si vous utilisez le CML (GitHub Actions) pour travailler avec le Cloud, suivez ces étapes :
+
+    Assurez-vous que le contenu du fichier default.json est ajouté au répertoire secret de GitHub.
+    Modifiez le workflow GitHub Actions pour inclure les informations nécessaires pour accéder au fichier default.json.
+    Effectuez un push pour déclencher le workflow. Assurez-vous que tout fonctionne correctement.
+
+
+

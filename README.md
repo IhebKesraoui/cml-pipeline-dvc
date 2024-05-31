@@ -6,8 +6,8 @@ Ce projet utilise DVC (Data Version Control) pour gérer les données et Git pou
 
 ```bash
 # 1. Initialisation du dépôt Git
-git init
-
+git init 
+```bash
 # 2. Initialisation de DVC
 dvc init
 

@@ -27,7 +27,7 @@ jobs:
 
         run: |
 
-          dvc pull -r myremote
+          dvc pull csv_out --run-cache
           mkdir out
           mkdir csv_out
           dvc repro

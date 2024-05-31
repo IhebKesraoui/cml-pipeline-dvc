@@ -1,5 +1,8 @@
 name: churn-imbalanced-dataset-dvc
-on: [push]
+on:
+  push:
+    branches:
+      - verified
 permissions: write-all
 jobs:
   run:
@@ -29,4 +32,12 @@ jobs:
           mkdir csv_out
           dvc repro
           dvc add ./csv_out
+          
+          git config --global user.email "iheb.kesraoui@nanoz-group.com"
+          git config --global user.name "IhebKesraoui"
+          git add .
+          git commit -m "push the csv-out"
           dvc push -r myremote2
+          git push origin verified
+
+          

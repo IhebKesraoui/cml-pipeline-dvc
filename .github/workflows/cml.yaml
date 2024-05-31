@@ -27,7 +27,7 @@ jobs:
 
         run: |
 
-          dvc pull csv_out --run-cache
+          dvc pull data --run-cache
           mkdir out
           mkdir csv_out
           dvc repro

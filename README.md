@@ -1,10 +1,10 @@
-# Projet avec DVC (Data Version Control)
+# Project with DVC (Data Version Control)
 
-Ce projet utilise DVC pour gérer les données et Git pour gérer le code source. Suivez les étapes ci-dessous pour configurer et utiliser DVC avec Git.
+This project uses DVC to manage data and Git to manage source code. Follow the steps below to set up and use DVC with Git.
 
-## Guide d'utilisation
+## User Guide
 
-### 1. Initialisation du dépôt Git
+### 1. Initialize the Git repository
 
 ```bash
 <<<<<<< HEAD
@@ -15,121 +15,124 @@ git init
 =======
 git init
 ```
-2. Initialisation de DVC
+2. Initialize DVC
 
 ```bash
 
 >>>>>>> 5fae1c38b041a4cda557c9d7b577affa73a8138a
 dvc init
 ```
-3. Ajout des données à DVC
+3. Add data to DVC
 
 ```bash
 
-# Ajoutez les données que vous souhaitez suivre avec DVC.
-dvc add <chemin_vers_les_données>
+# Add the data you want to track with DVC.
+dvc add <path_to_data>
 ```
-4. Configuration du stockage distant (Google Drive)
+4. Configure remote storage (Google Drive)
 
 ```bash
 
-# Utilisez Google Drive comme stockage distant pour vos données DVC.
-dvc remote add myremote gdrive://<ID_du_dossier_sur_Google_Drive>
+# Use Google Drive as remote storage for your DVC data.
+dvc remote add myremote gdrive://<Google_Drive_folder_ID>
 ```
-5. Configuration des paramètres Google Drive
+5. Configure Google Drive settings
 
-Assurez-vous que les paramètres suivants sont définis dans votre fichier de configuration dvc.conf :
-```bash
+Make sure the following settings are defined in your configuration file dvc.conf:
+
+ini
 
 [gdrive]
 gdrive_acknowledge_abuse = true
+
+And then modify your remote:
+
+```bash
+
 dvc remote modify myremote gdrive_use_service_account true
-et on ajoute le fichier .dvc/default.json ( qui contient les donnees personnelles de google drive)
+
+Also, add the .dvc/default.json file (which contains your Google Drive personal data).
 ```
-6. Sélection du profil pour le stockage distant
+6. Select the profile for remote storage
+
 ```bash
 
 dvc remote modify --local myremote profile myprofile
 ```
-
-
-
-7. Commit et Push des données avec DVC
+7. Commit and push data with DVC
 
 ```bash
 
-# Après avoir ajouté et suivi les modifications des données avec DVC, effectuez les étapes Git classiques pour les commit et push.
+# After adding and tracking data changes with DVC, perform the usual Git steps to commit and push.
 git add .
-git commit -m "Ajout des données avec DVC"
+git commit -m "Add data with DVC"
 git push origin main
 ```
-8. Utilisation avec un autre local
+8. Using with another local environment
+User Guide
 
-## Guide d'utilisation
-clone le projet github
-  ```bash
-
-
-git clone <nom de represotory>
-```
-### 1. Méthode pour travailler en local
-
-#### Option 1: Utiliser un compte Google Drive personnel
-
-Si vous travaillez en local, suivez ces étapes :
+Clone the GitHub project:
 
 ```bash
-# Activer l'option pour reconnaître l'abus dans la configuration DVC
+
+git clone <repository_name>
+```
+1. Method for working locally
+Option 1: Use a personal Google Drive account
+
+If you are working locally, follow these steps:
+
+```bash
+
+# Enable the option to acknowledge abuse in the DVC configuration
 dvc remote modify --local myremote gdrive_acknowledge_abuse true
 
-# Ajouter le profil pour le stockage distant
+# Add the profile for remote storage
 dvc remote modify --local myremote profile myprofile
 
-# Effectuer le pull et le push des données avec DVC
+# Pull and push data with DVC
 dvc pull
 dvc push
 ```
-#### Option 2: Utiliser un compte de service Google
+Option 2: Use a Google service account
 
-Pour utiliser un compte de service Google, exécutez la commande suivante :
+To use a Google service account, run the following command:
 
 ```bash
 
-# Activer l'utilisation du compte de service Google
+# Enable the use of the Google service account
 dvc remote modify myremote gdrive_use_service_account true
 
-# Implémenter le fichier default.json téléchargé depuis Google Cloud API
-# Assurez-vous que le fichier default.json est correctement configuré avec les autorisations nécessaires
+# Implement the default.json file downloaded from Google Cloud API
+# Ensure the default.json file is correctly configured with the necessary permissions
 ```
-### 2. Méthode pour travailler avec le Cloud (CML - GitHub Actions)
+2. Method for working with the Cloud (CML - GitHub Actions)
 
-Si vous utilisez le CML (GitHub Actions) pour travailler avec le Cloud, suivez ces étapes :
+If you are using CML (GitHub Actions) to work with the Cloud, follow these steps:
 
-    1- Assurez-vous que le contenu du fichier default.json est ajouté au répertoire secret de GitHub.
-    2- Modifiez le workflow GitHub Actions pour inclure les informations nécessaires pour accéder au fichier default.json.
-    3- Effectuez un push pour déclencher le workflow. Assurez-vous que tout fonctionne correctement.
+    1- Ensure the content of the default.json file is added to the GitHub secrets directory.
+    2- Modify the GitHub Actions workflow to include the necessary information to access the default.json file.
+    3- Push to trigger the workflow. Ensure everything works correctly.
 
-## Monitoring des commits
+Monitoring commits
 
-Pour suivre les modifications apportées aux données et au code, vous pouvez utiliser git log pour les commits Git et dvc checkout pour les versions des données avec DVC :
+To track changes made to the data and code, you can use git log for Git commits and dvc checkout for data versions with DVC:
 
-  Utilisez git log pour voir l'historique des commits :
+Use git log to see the commit history:
+
 ```bash
 
 git log
 ```
-
-Utilisez git checkout pour revenir à une version précédente du code :
+Use git checkout to revert to a previous version of the code:
 
 ```bash
 
-git checkout <hash_commit>
+git checkout <commit_hash>
 ```
-
-Utilisez dvc checkout pour revenir à une version précédente des données :
+Use dvc checkout to revert to a previous version of the data:
 
 ```bash
 
 dvc checkout
 ```
-

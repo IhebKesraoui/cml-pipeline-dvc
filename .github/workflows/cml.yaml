@@ -27,7 +27,7 @@ jobs:
 
         run: |
 
-          dvc pull
+          dvc pull -r myremote
           mkdir out
           mkdir csv_out
           dvc repro
@@ -39,5 +39,4 @@ jobs:
           git commit -m "push the csv-out"
           dvc push -r myremote2
           git push origin verified
-
           

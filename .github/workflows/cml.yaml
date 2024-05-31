@@ -38,5 +38,6 @@ jobs:
           git add .
           git commit -m "push the csv-out"
           dvc push -r myremote2
-          git push -u origin fullco
+          git push origin HEAD:fullcodea
+
           

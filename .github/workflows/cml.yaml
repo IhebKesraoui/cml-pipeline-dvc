@@ -26,9 +26,17 @@ jobs:
           GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
 
         run: |
-        
+
           dvc pull data --run-cache
           mkdir out
           mkdir csv_out
           dvc repro
-
+          dvc add ./csv_out
+          
+          git config --global user.email "iheb.kesraoui@nanoz-group.com"
+          git config --global user.name "IhebKesraoui"
+          git add .
+          git commit -m "push the csv-out"
+          dvc push -r myremote2
+          git push origin verified
+          

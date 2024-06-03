@@ -55,8 +55,8 @@ stages:
     deps:
     - path: intermidiate_files/drop_file.txt
       hash: md5
-      md5: d41d8cd98f00b204e9800998ecf8427e
-      size: 0
+      md5: 21acc9e4835240fe3452cf8e0d386c4d
+      size: 21
     - path: out
       hash: md5
       md5: d751713988987e9331980363e24189ce.dir

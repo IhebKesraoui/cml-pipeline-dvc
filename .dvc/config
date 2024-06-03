@@ -3,8 +3,8 @@
 ['remote "myremote"']
     url = gdrive://18YYBsUk5-DvnFfzGs2q9pBHPQO8NCQCY
     gdrive_acknowledge_abuse = true
-    gdrive_use_service_account = true
+    #gdrive_use_service_account = true
 ['remote "myremote2"']
     url = gdrive://19opW14aCDPxnvOaYmLrP1T8E2ogYA_rL
     gdrive_acknowledge_abuse = true
-    gdrive_use_service_account = true
+    #gdrive_use_service_account = true

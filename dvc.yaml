@@ -34,6 +34,7 @@ stages:
     cmd: python src/data_preprocess/push_csv_out.py out csv_out
     deps:
       - src/data_preprocess/push_csv_out.py
+      - data
       
       - out
  

@@ -13,9 +13,9 @@ stages:
     deps:
     - path: data
       hash: md5
-      md5: aefea9c252770fc18bf9c7c757a6d0ec.dir
-      size: 88628120
-      nfiles: 4
+      md5: f7be1703276a07cbe35064a9a7ef5381.dir
+      size: 70898873
+      nfiles: 3
     - path: src/data_preprocess/tdms_to_df.py
       hash: md5
       md5: 7ffbf4b559e0e257992fd92b8d65185b
@@ -142,12 +142,10 @@ stages:
     deps:
     - path: out
       hash: md5
-
-      md5: c3bf99252923e3e8a6fec8751cd7fcea.dir
-      size: 83527528
-      nfiles: 3
-
+      md5: fa398958fac39e300b73059983fcca7b.dir
+      size: 83534624
+      nfiles: 4
     - path: src/data_preprocess/push_csv_out.py
       hash: md5
-      md5: 58feda99d99f0968fc8e6849520de868
-      size: 462
+      md5: 2656e9958940604a59485e926365820b
+      size: 487

@@ -40,22 +40,16 @@ ini
 
 [gdrive]
 gdrive_acknowledge_abuse = true
-
-And then modify your remote:
+dvc remote modify --local myremote profile myprofile
+or use service account by google:
 
 ```bash
 
 dvc remote modify myremote gdrive_use_service_account true
 
 Also, add the .dvc/default.json file (which contains your Google Drive personal data).
-```
-6. Select the profile for remote storage
-
-```bash
-
-dvc remote modify --local myremote profile myprofile
-```
-7. Commit and push data with DVC
+````
+6. Commit and push data with DVC
 
 ```bash
 
@@ -64,14 +58,13 @@ git add .
 git commit -m "Add data with DVC"
 git push origin main
 ```
-8. Using with another local environment
+7. Using with another local environment
 User Guide
 
 Clone the GitHub project:
 
 ```bash
-
-git clone <repository_name>
+git clone --branch <branchname> <remote-repo-url>
 ```
 1. Method for working locally
 Option 1: Use a personal Google Drive account
@@ -132,3 +125,11 @@ Use dvc checkout to revert to a previous version of the data:
 
 dvc checkout
 ```
+Et voici les deux liens de drive :
+
+```bash
+warehouse : https://drive.google.com/drive/u/1/folders/19opW14aCDPxnvOaYmLrP1T8E2ogYA_rL
+raw : https://drive.google.com/drive/u/1/folders/18YYBsUk5-DvnFfzGs2q9pBHPQO8NCQCY
+```
+lien de default.json :
+https://drive.google.com/drive/u/1/folders/1qZcDnGG_C6GGu6utLibneuWQI5j67VTY

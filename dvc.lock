@@ -142,9 +142,9 @@ stages:
     deps:
     - path: out
       hash: md5
-      md5: d751713988987e9331980363e24189ce.dir
-      size: 0
-      nfiles: 0
+      md5: c3bf99252923e3e8a6fec8751cd7fcea.dir
+      size: 83527528
+      nfiles: 3
     - path: src/data_preprocess/push_csv_out.py
       hash: md5
       md5: 58feda99d99f0968fc8e6849520de868

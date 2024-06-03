@@ -13,13 +13,13 @@ stages:
     deps:
     - path: data
       hash: md5
-      md5: 68ec8d3d609583122d9f571f1c48ab37.dir
-      size: 53169626
-      nfiles: 2
+      md5: 9b7a2d577c4d9661c679457fce74f36c.dir
+      size: 70898873
+      nfiles: 3
     - path: src/data_preprocess/tdms_to_df.py
       hash: md5
-      md5: 7ffbf4b559e0e257992fd92b8d65185b
-      size: 1815
+      md5: e19f923fc9d371633e9cc7cfe7d88729
+      size: 1767
   rename_channels:
     cmd: python src/data_preprocess/rename_channels.py out intermidiate_files/rename_map.yaml
       out
@@ -30,9 +30,9 @@ stages:
       size: 0
     - path: out
       hash: md5
-      md5: 159351dc756c4524b7e28249b1c629a4.dir
-      size: 52712545
-      nfiles: 2
+      md5: d49457301e5537eb7e04bc2d28b22315.dir
+      size: 70282381
+      nfiles: 3
     - path: src/data_preprocess/rename_channels.py
       hash: md5
       md5: 46cab4ccc190358032225e3acfecfd3d
@@ -42,9 +42,9 @@ stages:
     deps:
     - path: out
       hash: md5
-      md5: 67bd67a0bed85268429417433c2a703f.dir
-      size: 50121615
-      nfiles: 2
+      md5: 4605071d557f32ddeab09e4f405254b8.dir
+      size: 66828118
+      nfiles: 3
     - path: src/data_preprocess/merge_bench_line.py
       hash: md5
       md5: e2be9361abb3cc94f4ebb84b2f4a2015
@@ -59,9 +59,9 @@ stages:
       size: 0
     - path: out
       hash: md5
-      md5: ba6941ec6bf182c531f9cf7e53ff21be.dir
-      size: 50121612
-      nfiles: 2
+      md5: 519af8be0ec4c7981931f458c0dff13a.dir
+      size: 66828118
+      nfiles: 3
     - path: src/data_preprocess/drop_columns.py
       hash: md5
       md5: 998f3d7a7665fa91da0e0ddf849ba4d6
@@ -69,11 +69,16 @@ stages:
   convert_to_csv:
     cmd: python src/data_preprocess/df_to_csv.py out csv_out
     deps:
+    - path: data
+      hash: md5
+      md5: 68ec8d3d609583122d9f571f1c48ab37.dir
+      size: 53169626
+      nfiles: 2
     - path: out
       hash: md5
-      md5: ba6941ec6bf182c531f9cf7e53ff21be.dir
-      size: 50121612
-      nfiles: 2
+      md5: 519af8be0ec4c7981931f458c0dff13a.dir
+      size: 66828118
+      nfiles: 3
     - path: src/data_preprocess/df_to_csv.py
       hash: md5
       md5: cf65f67ae0935d603b12f6b3f3ea9f51

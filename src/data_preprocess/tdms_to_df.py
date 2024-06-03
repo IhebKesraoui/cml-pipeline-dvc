@@ -32,7 +32,6 @@ if __name__ == "__main__":
     parser.add_argument("output_dir", type=str, help="./cml-pipeline-dvc/out")
 
     args = parser.parse_args()
-    os.makedirs(args.output_dir, exist_ok=True)
     # Process each TDMS file in the directory
     for file_name in os.listdir(args.tdms_dir):
         if file_name.endswith(".tdms"):

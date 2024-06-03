@@ -8,8 +8,10 @@ def run_command(command):
     else:
         print(result.stdout)
 
-commands = [          "git config --global user.email 'iheb.kesraoui@nanoz-group.com'",
-          'git config --global user.name "IhebKesraoui"',
+commands = [         
+    "dvc add ./csv_out",
+    "git config --global user.email 'iheb.kesraoui@nanoz-group.com'",
+    'git config --global user.name "IhebKesraoui"',
     "dvc add ./csv_out",
     "git add .",
     'git commit -m "push the csv-out"',

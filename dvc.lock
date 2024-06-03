@@ -137,3 +137,15 @@ stages:
       hash: md5
       md5: 81d0bc8e4eda689d26d9f09a9331c2a7
       size: 1417
+  push_csv_to_warehouse:
+    cmd: python src/data_preprocess/push_csv_out.py out csv_out
+    deps:
+    - path: out
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/data_preprocess/push_csv_out.py
+      hash: md5
+      md5: 58feda99d99f0968fc8e6849520de868
+      size: 462

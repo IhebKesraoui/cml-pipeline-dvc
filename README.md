@@ -9,7 +9,6 @@ This project uses DVC to manage data and Git to manage source code. Follow the s
 ```bash
 
 
-# 2. Initialisation de DVC
 git init
 ```
 2. Initialize DVC

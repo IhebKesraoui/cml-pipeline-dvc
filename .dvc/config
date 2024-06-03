@@ -2,16 +2,10 @@
     remote = myremote
 ['remote "myremote"']
     url = gdrive://18YYBsUk5-DvnFfzGs2q9pBHPQO8NCQCY
-<<<<<<< HEAD
     gdrive_use_service_account = true
+    gdrive_acknowledge_abuse = true
 ['remote "myremote2"']
     url = gdrive://19opW14aCDPxnvOaYmLrP1T8E2ogYA_rL
     
-=======
-    gdrive_acknowledge_abuse = true
     gdrive_use_service_account = true
-['remote "myremote2"']
-    url = gdrive://19opW14aCDPxnvOaYmLrP1T8E2ogYA_rL
     gdrive_acknowledge_abuse = true
->>>>>>> 623cc087f22c6c82049d91746e5c4ec9ccc014b6
-    gdrive_use_service_account = true

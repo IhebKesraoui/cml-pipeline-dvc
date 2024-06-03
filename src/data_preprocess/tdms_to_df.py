@@ -32,7 +32,7 @@ if __name__ == "__main__":
     parser.add_argument("output_dir", type=str, help="./cml-pipeline-dvc/out")
 
     args = parser.parse_args()
-
+    os.makedirs(args.output_dir, exist_ok=True)
     # Process each TDMS file in the directory
     for file_name in os.listdir(args.tdms_dir):
         if file_name.endswith(".tdms"):
@@ -43,5 +43,6 @@ if __name__ == "__main__":
             
             # Save the result as a pickle file
             output_file_path = os.path.join(args.output_dir, os.path.splitext(file_name)[0] + ".pkl")
+            
             with open(output_file_path, 'wb') as f:
                 pickle.dump(df, f)

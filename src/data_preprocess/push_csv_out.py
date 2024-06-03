@@ -9,6 +9,7 @@ def run_command(command):
         print(result.stdout)
 
 commands = [
+    "dvc add ./csv_out",
     "git add .",
     'git commit -m "push the csv-out"',
     "dvc push -r myremote2",

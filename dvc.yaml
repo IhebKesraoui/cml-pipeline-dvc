@@ -30,11 +30,5 @@ stages:
     deps:
       - src/data_preprocess/df_to_csv.py
       - out
-  push_csv_to_warehouse:
-    cmd: python src/data_preprocess/push_csv_out.py out csv_out
-    deps:
-      - src/data_preprocess/push_csv_out.py
-      - data
-      
-      - out
+
  

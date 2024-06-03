@@ -152,5 +152,5 @@ stages:
       nfiles: 4
     - path: src/data_preprocess/push_csv_out.py
       hash: md5
-      md5: 2656e9958940604a59485e926365820b
-      size: 487
+      md5: 8b342d9602296ac225a985becf5cf3ce
+      size: 620

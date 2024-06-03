@@ -4,8 +4,7 @@ import os
 
 def drop_columns(df, drop_file_path):
     """
-    Drops columns specified in a text file from the DataFrame.
-    
+    Drops columns specified in a text file from the DataFrame.    
     Parameters:
     df (pd.DataFrame): Input DataFrame.
     drop_file_path (str): Path to the text file containing column names to drop.                         

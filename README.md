@@ -7,19 +7,17 @@ This project uses DVC to manage data and Git to manage source code. Follow the s
 ### 1. Initialize the Git repository
 
 ```bash
-<<<<<<< HEAD
+
 # 1. Initialisation du dépôt Git
 git init 
-```bash
 # 2. Initialisation de DVC
-=======
 git init
 ```
 2. Initialize DVC
 
 ```bash
 
->>>>>>> 5fae1c38b041a4cda557c9d7b577affa73a8138a
+
 dvc init
 ```
 3. Add data to DVC

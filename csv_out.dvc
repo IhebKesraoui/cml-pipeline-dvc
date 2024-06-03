@@ -1,6 +1,6 @@
 outs:
-- md5: d751713988987e9331980363e24189ce.dir
-  size: 0
-  nfiles: 0
+- md5: 926b0b741013932938b5af3ed09623b3.dir
+  size: 145164919
+  nfiles: 4
   hash: md5
   path: csv_out

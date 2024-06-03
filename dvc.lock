@@ -64,7 +64,7 @@ stages:
       nfiles: 0
     - path: src/data_preprocess/drop_columns.py
       hash: md5
-      md5: 998f3d7a7665fa91da0e0ddf849ba4d6
+      md5: ebfc5af26ba7b68f723a02d41940b513
       size: 2549
   convert_to_csv:
     cmd: python src/data_preprocess/df_to_csv.py out csv_out

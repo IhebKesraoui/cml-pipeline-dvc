@@ -2,5 +2,6 @@ outs:
 - md5: 4f72441ded00835af039c711b23293e1.dir
   size: 116141495
   nfiles: 3
+
   hash: md5
   path: csv_out

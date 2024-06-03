@@ -13,9 +13,9 @@ stages:
     deps:
     - path: data
       hash: md5
-      md5: aefea9c252770fc18bf9c7c757a6d0ec.dir
-      size: 88628120
-      nfiles: 4
+      md5: a0c5f87147becfc6b4ac9761c2fd183e.dir
+      size: 88602201
+      nfiles: 3
     - path: src/data_preprocess/tdms_to_df.py
       hash: md5
       md5: 64b8b243e3787291f41402e5164ed6c8
@@ -30,9 +30,9 @@ stages:
       size: 0
     - path: out
       hash: md5
-      md5: d751713988987e9331980363e24189ce.dir
-      size: 0
-      nfiles: 0
+      md5: 330b44b8b5c548592bec9d20a1a4c777.dir
+      size: 87845512
+      nfiles: 3
     - path: src/data_preprocess/rename_channels.py
       hash: md5
       md5: 46cab4ccc190358032225e3acfecfd3d
@@ -42,9 +42,9 @@ stages:
     deps:
     - path: out
       hash: md5
-      md5: d751713988987e9331980363e24189ce.dir
-      size: 0
-      nfiles: 0
+      md5: 37f30ccc9dde525afc117c8c3caa7c20.dir
+      size: 83527519
+      nfiles: 3
     - path: src/data_preprocess/merge_bench_line.py
       hash: md5
       md5: e2be9361abb3cc94f4ebb84b2f4a2015
@@ -59,9 +59,9 @@ stages:
       size: 0
     - path: out
       hash: md5
-      md5: d751713988987e9331980363e24189ce.dir
-      size: 0
-      nfiles: 0
+      md5: c3bf99252923e3e8a6fec8751cd7fcea.dir
+      size: 83527528
+      nfiles: 3
     - path: src/data_preprocess/drop_columns.py
       hash: md5
       md5: 998f3d7a7665fa91da0e0ddf849ba4d6
@@ -71,9 +71,9 @@ stages:
     deps:
     - path: out
       hash: md5
-      md5: d751713988987e9331980363e24189ce.dir
-      size: 0
-      nfiles: 0
+      md5: c3bf99252923e3e8a6fec8751cd7fcea.dir
+      size: 83527528
+      nfiles: 3
     - path: src/data_preprocess/df_to_csv.py
       hash: md5
       md5: cf65f67ae0935d603b12f6b3f3ea9f51
@@ -137,3 +137,15 @@ stages:
       hash: md5
       md5: 81d0bc8e4eda689d26d9f09a9331c2a7
       size: 1417
+  push_csv_to_warehouse:
+    cmd: python src/data_preprocess/push_csv_out.py out csv_out
+    deps:
+    - path: out
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/data_preprocess/push_csv_out.py
+      hash: md5
+      md5: 58feda99d99f0968fc8e6849520de868
+      size: 462

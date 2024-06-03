@@ -30,8 +30,8 @@ stages:
       size: 0
     - path: out
       hash: md5
-      md5: d49457301e5537eb7e04bc2d28b22315.dir
-      size: 70282381
+      md5: 519af8be0ec4c7981931f458c0dff13a.dir
+      size: 66828118
       nfiles: 3
     - path: src/data_preprocess/rename_channels.py
       hash: md5
@@ -147,15 +147,10 @@ stages:
     deps:
     - path: data
       hash: md5
-      md5: f7be1703276a07cbe35064a9a7ef5381.dir
+      md5: 9b7a2d577c4d9661c679457fce74f36c.dir
       size: 70898873
       nfiles: 3
-    - path: out
-      hash: md5
-      md5: fa398958fac39e300b73059983fcca7b.dir
-      size: 83534624
-      nfiles: 4
     - path: src/data_preprocess/push_csv_out.py
       hash: md5
-      md5: 8b342d9602296ac225a985becf5cf3ce
-      size: 620
+      md5: 3072efe151fb02af3dce76b6bd7527db
+      size: 643

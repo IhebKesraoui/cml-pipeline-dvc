@@ -31,3 +31,27 @@ This approach ensures that any change in the data or codebase automatically init
 - **BentoML**: Framework for serving and deploying machine learning models.
 
 ## How to Install and Setup the Application
+
+## How to Install and Setup the Application
+1. Clone the repository and switch to the verified branch:
+      Open your code editor (e.g., VSCode) to start working on the project.
+
+   ```sh
+   git clone -b verified <repository-url>
+  
+```
+    Install the required dependencies:
+
+    ```sh
+
+    pip install -r requirements.txt
+```
+
+How to Pull the Project and Data
+
+    Copy the default.json and config.local files from Google Drive and place them inside the ./.dvc folder in your project directory.
+    Pull the data using DVC:
+
+    ```sh
+
+dvc pull ```

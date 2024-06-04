@@ -5,7 +5,7 @@
 2. [Tools Used](#tools-used)
 3. [How to Install and Setup the Application](#how-to-install-and-setup-the-application)
 4. [How to Pull the Project and Data](#how-to-pull-the-project-and-data)
-5. [How to Run the Pipeline](#how-to-run-the-pipeline)
+5. [Running the Pipeline](#Running-the-Pipeline)
 6. [Roadmap](#roadmap)
 7. [Useful Links](#useful-links)
 

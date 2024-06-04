@@ -37,7 +37,7 @@ This approach ensures that any change in the data or codebase automatically init
 
    ```bash
    git clone -b verified <repository-url> ```
-###Install the required dependencies :
+Install the required dependencies :
 
    ```bash 
 
@@ -47,7 +47,7 @@ This approach ensures that any change in the data or codebase automatically init
 ## How to Pull the Project and Data
    
 
- Copy the default.json and config.local files from Google Drive and place them inside the ./.dvc folder in your project directory.
+ Copy the default.json and config.local files from Google Drive [Google Drive link ](https://drive.google.com/drive/u/1/folders/1qZcDnGG_C6GGu6utLibneuWQI5j67VTY) and place them inside the ./.dvc folder in your project directory.
     Pull the data using DVC:
 
   ```sh

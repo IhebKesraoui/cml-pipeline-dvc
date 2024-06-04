@@ -30,7 +30,7 @@ This approach ensures that any change in the data or codebase automatically init
 - **MLflow**: Platform for managing the lifecycle of machine learning models.
 - **BentoML**: Framework for serving and deploying machine learning models.
 
-# DVC
+# 1. DVC
 ## How to Install and Setup the Application
 1. Clone the repository and switch to the verified branch:
       Open your code editor (e.g., VSCode) to start working on the project.

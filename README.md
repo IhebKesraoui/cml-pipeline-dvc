@@ -125,3 +125,10 @@ Add all changes to Git, commit them, and push to your remote Git repository:
       git commit -m "add data"
       git push
 ```
+Following these steps ensures that your pipeline is automated and the data and code are properly tracked and stored in both DVC and Git repositories.
+## Roadmap
+
+ - [ ] Add Unit Tests
+ - [ ] Correct Project Directory Structure (Arborescence)
+ - [ ] Enable Handling of Large Datasets
+ - [ ] Enhance Visualization Components

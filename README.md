@@ -1,135 +1,29 @@
-# Project with DVC (Data Version Control)
+# README
 
-This project uses DVC to manage data and Git to manage source code. Follow the steps below to set up and use DVC with Git.
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Tools Used](#tools-used)
+3. [How to Install and Setup the Application](#how-to-install-and-setup-the-application)
+4. [How to Pull the Project and Data](#how-to-pull-the-project-and-data)
+5. [How to Run the Pipeline](#how-to-run-the-pipeline)
+6. [Roadmap](#roadmap)
+7. [Useful Links](#useful-links)
 
-## User Guide
+## Introduction
+The project is a robust MLOps pipeline that emphasizes CI/CD principles. The primary goal is to facilitate seamless integration and deployment of machine learning models. This pipeline is designed to react to any modifications in the data or functions by triggering a series of automated steps including debugging, testing, training, and deploying the model to the cloud.
 
-### 1. Initialize the Git repository
+Key features of the pipeline:
+- **Data Versioning and Control**: Utilizing DVC to manage data changes effectively.
+- **Model Tracking**: Implementing MLflow to keep track of experiments, metrics, and parameters.
+- **Deployment**: Using BentoML to deploy models efficiently.
 
-```bash
+This approach ensures that any change in the data or codebase automatically initiates the pipeline, maintaining the integrity and performance of the deployed models.
 
+## Tools Used
+- **DVC**: Data Version Control for managing datasets and versions.
+- **VSCode**: Integrated Development Environment for coding and debugging.
+- **Google Drive**: Cloud storage for data management.
+- **MLflow**: Platform for managing the lifecycle of machine learning models.
+- **BentoML**: Framework for serving and deploying machine learning models.
 
-git init
-```
-2. Initialize DVC
-
-```bash
-
-
-dvc init
-```
-3. Add data to DVC
-
-```bash
-
-# Add the data you want to track with DVC.
-dvc add <path_to_data>
-```
-4. Configure remote storage (Google Drive)
-
-```bash
-
-# Use Google Drive as remote storage for your DVC data.
-dvc remote add myremote gdrive://<Google_Drive_folder_ID>
-```
-5. Configure Google Drive settings
-
-Make sure the following settings are defined in your configuration file dvc.conf:
-
-ini
-
-[gdrive]
-gdrive_acknowledge_abuse = true
-dvc remote modify --local myremote profile myprofile
-or use service account by google:
-
-```bash
-
-dvc remote modify myremote gdrive_use_service_account true
-
-Also, add the .dvc/default.json file (which contains your Google Drive personal data).
-````
-6. Commit and push data with DVC
-
-```bash
-
-# After adding and tracking data changes with DVC, perform the usual Git steps to commit and push.
-git add .
-git commit -m "Add data with DVC"
-git push origin main
-```
-7. Using with another local environment
-User Guide
-
-Clone the GitHub project:
-
-```bash
-git clone --branch <branchname> <remote-repo-url>
-```
-1. Method for working locally
-Option 1: Use a personal Google Drive account
-
-If you are working locally, follow these steps:
-
-```bash
-
-# Enable the option to acknowledge abuse in the DVC configuration
-dvc remote modify --local myremote gdrive_acknowledge_abuse true
-
-# Add the profile for remote storage
-dvc remote modify --local myremote profile myprofile
-
-# Pull and push data with DVC
-dvc pull
-dvc push
-```
-Option 2: Use a Google service account
-
-To use a Google service account, run the following command:
-
-```bash
-
-# Enable the use of the Google service account
-dvc remote modify myremote gdrive_use_service_account true
-
-# Implement the default.json file downloaded from Google Cloud API
-# Ensure the default.json file is correctly configured with the necessary permissions
-```
-2. Method for working with the Cloud (CML - GitHub Actions)
-
-If you are using CML (GitHub Actions) to work with the Cloud, follow these steps:
-
-    1- Ensure the content of the default.json file is added to the GitHub secrets directory.
-    2- Modify the GitHub Actions workflow to include the necessary information to access the default.json file.
-    3- Push to trigger the workflow. Ensure everything works correctly.
-
-Monitoring commits
-
-To track changes made to the data and code, you can use git log for Git commits and dvc checkout for data versions with DVC:
-
-Use git log to see the commit history:
-
-```bash
-
-git log
-```
-Use git checkout to revert to a previous version of the code:
-
-```bash
-
-git checkout <commit_hash>
-```
-Use dvc checkout to revert to a previous version of the data:
-
-```bash
-
-dvc checkout
-```
-Et voici les deux liens de drive :
-
-```bash
-warehouse : https://drive.google.com/drive/u/1/folders/19opW14aCDPxnvOaYmLrP1T8E2ogYA_rL
-raw : https://drive.google.com/drive/u/1/folders/18YYBsUk5-DvnFfzGs2q9pBHPQO8NCQCY
-```
-lien de default.json :
-https://drive.google.com/drive/u/1/folders/1qZcDnGG_C6GGu6utLibneuWQI5j67VTY
+## How to Install and Setup the Application

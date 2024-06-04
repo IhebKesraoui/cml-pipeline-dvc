@@ -66,7 +66,7 @@ This approach ensures that any change in the data or codebase automatically init
       ```
 # Running the Pipeline
 
-## Running the Pipeline Locally
+## 1. Running the Pipeline Locally
 
 To run the pipeline locally, follow these steps:
 
@@ -94,13 +94,13 @@ Push the results to your remote storage (e.g., myremote2):
 
     dvc push -r myremote2
 ```
-## Setting Up an Automated Pipeline
+## 2.Setting Up an Automated Pipeline
 
 To set up an automated pipeline, you need to add your data, push the data and code, and then push everything to your remote repository. Here's how you can do it:
 
 Add the Data to the Local Folder:
 
-Add your data folder (e.g., data) to DVC tracking:
+- Add your data folder (e.g., data) to DVC tracking:
 
 ```sh
 
@@ -109,10 +109,10 @@ Add your data folder (e.g., data) to DVC tracking:
 - Push the Data to Remote Storage:
 
 
-  ```sh
+```sh
 
             dvc push
-  ```
+```
 
 - Push the Code to the Git Repository:
 

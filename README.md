@@ -41,7 +41,7 @@ This approach ensures that any change in the data or codebase automatically init
   
     Install the required dependencies:
 
-    sh
+    ```sh
 
     pip install -r requirements.txt
 
@@ -51,6 +51,6 @@ How to Pull the Project and Data
     Copy the default.json and config.local files from Google Drive and place them inside the ./.dvc folder in your project directory.
     Pull the data using DVC:
 
-    sh
+    ```sh
 
 dvc pull

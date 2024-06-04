@@ -102,25 +102,25 @@ Add the Data to the Local Folder:
 
 Add your data folder (e.g., data) to DVC tracking:
 
-    ```sh
+```sh
 
-       dvc add data
-    ```
+      dvc add data
+```
 - Push the Data to Remote Storage:
 
 
-      ```sh
+  ```sh
 
             dvc push
-      ```
+  ```
 
 - Push the Code to the Git Repository:
 
 Add all changes to Git, commit them, and push to your remote Git repository:
 
-      ```sh
+```sh
 
             git add .
             git commit -m "add data"
             git push
-      ```
+```

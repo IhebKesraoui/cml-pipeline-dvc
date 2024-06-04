@@ -132,3 +132,8 @@ Following these steps ensures that your pipeline is automated and the data and c
  - [ ] Correct Project Directory Structure (Arborescence)
  - [ ] Enable Handling of Large Datasets
  - [ ] Enhance Visualization Components
+## Useful Links
+
+    [DVC using google drive ](https://dvc.org/doc/user-guide/data-management/remote-storage/google-drive)
+    [DVC and CML](https://cml.dev/doc/cml-with-dvc)
+    [DVC Documentation](https://dvc.org/doc)

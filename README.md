@@ -44,7 +44,7 @@ This approach ensures that any change in the data or codebase automatically init
     pip install -r requirements.txt
    ```
 
-2. How to Pull the Project and Data
+## How to Pull the Project and Data
    
 
  Copy the default.json and config.local files from Google Drive and place them inside the ./.dvc folder in your project directory.

@@ -38,13 +38,13 @@ This approach ensures that any change in the data or codebase automatically init
 
    ```sh
    git clone -b verified <repository-url>
-  
+  ```
     Install the required dependencies:
 
     ```sh
 
     pip install -r requirements.txt
-
+```
 
 How to Pull the Project and Data
 
@@ -53,4 +53,4 @@ How to Pull the Project and Data
 
     ```sh
 
-dvc pull
+dvc pull ```

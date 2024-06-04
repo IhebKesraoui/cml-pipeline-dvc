@@ -9,8 +9,11 @@
 6. [Roadmap](#roadmap)
 7. [Useful Links](#useful-links)
 
+
 ## Introduction
 The project is a robust MLOps pipeline that emphasizes CI/CD principles. The primary goal is to facilitate seamless integration and deployment of machine learning models. This pipeline is designed to react to any modifications in the data or functions by triggering a series of automated steps including debugging, testing, training, and deploying the model to the cloud.
+
+![Pipeline Overview](./image1.png)
 
 Key features of the pipeline:
 - **Data Versioning and Control**: Utilizing DVC to manage data changes effectively.
@@ -19,6 +22,7 @@ Key features of the pipeline:
 
 This approach ensures that any change in the data or codebase automatically initiates the pipeline, maintaining the integrity and performance of the deployed models.
 
+![MLOps Workflow](./image2.png)
 ## Tools Used
 - **DVC**: Data Version Control for managing datasets and versions.
 - **VSCode**: Integrated Development Environment for coding and debugging.

@@ -50,9 +50,10 @@ This approach ensures that any change in the data or codebase automatically init
  Copy the default.json and config.local files from Google Drive and place them inside the ./.dvc folder in your project directory.
     Pull the data using DVC:
 
-    ```sh
+  ```sh
 
-     dvc pull ```
+     dvc pull
+  ```
 
 3. How to add data in the reprosetory
 
@@ -111,7 +112,7 @@ Add the Data to the Local Folder:
 
 ```sh
 
-            dvc push
+      dvc push
 ```
 
 - Push the Code to the Git Repository:
@@ -120,7 +121,7 @@ Add all changes to Git, commit them, and push to your remote Git repository:
 
 ```sh
 
-            git add .
-            git commit -m "add data"
-            git push
+      git add .
+      git commit -m "add data"
+      git push
 ```
